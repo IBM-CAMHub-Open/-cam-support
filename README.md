@@ -1,2 +1,3 @@
-# -cam-support
- cam support script
+# CAM Support script
+ 
+ This repository contains assets related to CAM support.
