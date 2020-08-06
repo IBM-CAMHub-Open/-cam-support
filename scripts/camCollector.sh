@@ -115,7 +115,7 @@ collectDiagnosticsData() {
             oc cp ${msPodName}:/var/log/mongodb ${ms_diagnostic_data_folder}/${msPodName} --namespace=$infrastructure_management_ns 2>&1
             echo "Successfully downloaded logs from pod ${msPodName}"
         elif [[ $msPodName != "cam-controller-"* ]] && [[ $msPodName != "cam-proxy-"* ]] && [[ $msPodName = "cam-"* ]]; then
-            podHostname=$(oc exec ${msPodName} hostname)
+            podHostname=$(oc exec ${msPodName} hostname --namespace=${infrastructure_management_ns})
             echo "pod Hostname is: $podHostname"
             oc cp ${msPodName}:${podLogsLocation}/${podHostname}/${msPodName} ${ms_diagnostic_data_folder}/${msPodName} --namespace=$infrastructure_management_ns 2>&1
             echo "Successfully downloaded logs from pod ${msPodName}"
